@@ -1,0 +1,42 @@
+<app-admin-nav></app-admin-nav>
+<!-- (ngSubmit)="addproduct(myForm,name.value,price.value,description.value,url.value, quantity.value);myForm.reset()" -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img 
+            id="productImage"
+            src="../../../assets/images/addproduct.svg" width="100%" alt="">
+        </div>
+        <div class="col-md-4">
+            
+            <div class="alert alert-primary text-white text-center" id="productHeader">
+                Edit product
+              </div>
+              
+                <div class="form-group">
+                    <label>Product Name</label>
+                    <input type="text" class="form-control" placeholder="Enter product name"
+                    [(ngModel)]="productname" required>
+                </div>
+                <div class="form-group">
+                  <label>Product Price</label>
+                  <input  type="text" class="form-control" 
+                   placeholder="Enter price" [(ngModel)]="price"  required>
+                </div>
+                <label>Description</label>
+                <div class="form-group">
+                  <textarea [(ngModel)]="description" class="form-control" placeholder="Enter Description" row="2" required></textarea>
+                </div>
+                <div class="form-group">
+                  <label>Image Url</label>
+                  <input [(ngModel)]="url" type="text" class="form-control" placeholder="Enter image URL" required>
+                </div>
+                <div class="form-group">
+                  <label>Quantity</label>
+                  <input [(ngModel)]="quantity" type="number" class="form-control" placeholder="Enter Quantity" required>
+                </div>
+                <button id="submitButton" class="btn btn-primary" (click)="submitForm()">Edit</button>
+        </div>
+    </div>
+</div>

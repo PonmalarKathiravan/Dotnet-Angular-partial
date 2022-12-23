@@ -1,0 +1,29 @@
+<app-client-nav></app-client-nav>
+<!-- <p *ngFor = "let order of orders">{{order.productName}}</p> -->
+<div class="container pt-3" id="orderBody">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-borderless" style="border:none">
+        <thead class="bg-warning">
+          <tr class="text-center">
+            <th scope="col">Book Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders" >
+            <td>{{order.productName}}</td>
+            <td class="text-center">{{order.price}}</td>
+            <td class="text-center">{{order.quantity}}</td>
+            <td class="text-center">{{order.totalPrice}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="text-center" *ngIf="hasItems===false">
+        <p>No Orders Placed!</p>
+      </div>
+    </div>
+  </div>
+</div>

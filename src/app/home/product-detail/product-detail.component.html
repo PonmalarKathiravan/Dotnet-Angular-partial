@@ -1,0 +1,52 @@
+<!-- <ul *ngFor = "let prd of products">
+  <li *ngIf="prd.productId===id">{{prd.productName}}</li>
+</ul> -->
+
+<div
+  *ngFor = "let prd of products" id="homeBody"
+>
+<div *ngIf="prd.productId===id">
+  <app-client-nav></app-client-nav>
+  <div class="row pt-4" >
+    <div class="col-md-4 ImgCol d-flex justify-content-center">
+      <!-- <p>Image column</p> -->
+      <img 
+        class="img-responsive flex-fill"
+        [src]="prd.imageUrl"
+        alt=""
+        style="width: 250px;"
+      >
+    </div>
+    <div class="col-md-8 secCol">
+      <div class="wholeCol">
+        <h2 class="pt-3">{{prd.productName}}</h2>
+        <h4 class="pt-2">Price : {{prd.price}}</h4>
+        <p>
+          <i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{prd.quantity}} stocks only left 
+        </p>
+        <hr style="margin-top:20px; width: 800px; margin-left: 20px;">
+  
+        <div class="desc">
+          <h5 class="pt-2">Description</h5>
+          <p>{{prd.description}}</p>
+        </div>
+        <!-- <form> -->
+          <label for="quant">Quantity</label> <br>
+          <input type="number" id="quant" min="1" [(ngModel)]="userQuantity" [max]=prd.quantity>
+          <!-- <button id="addButton" type="submit" class="btn btn-danger" style="width:80px; height:35px; margin-left: 20px;">Add</button>
+          <p>2 quantites added</p> -->
+        <!-- </form> -->
+      </div>
+      <div class="row justify-content-center pt-3" style="margin-bottom: 30px;">
+        <div class="col-md-6 text-center">
+          <a class="btn btn-warning text-white" (click)="addToCart()">Add to Cart</a>
+        </div>
+        <div class="col-md-6 text-white">
+          <a class="btn btn-success" 
+          (click)="addToOrder(prd.productName,prd.price)">Book Order</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

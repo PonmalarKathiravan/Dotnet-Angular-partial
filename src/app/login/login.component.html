@@ -1,0 +1,31 @@
+<div class="d-flex justify-content-center" *ngIf="status===false">
+  <div class="alert alert-dismissible fade show" role="alert" style="position: absolute; width:500px; top:20px;background-color: red; color:white;opacity: 0.8;"> 
+    Incorrect Credentials
+    <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close" style="margin-top: -4px;">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4" id="loginBox">
+        <h1 class="text-center">LOGIN</h1>
+        <form class="text-center" (ngSubmit)="login(email.value,password.value)">
+            <div class="form-group">
+               <input #email type="email" id="email" class="form-control" placeholder="Enter email"> 
+            </div>
+            <div class="form-group">
+              <input #password type="password" id="password" class="form-control" placeholder="Password">
+            </div>
+            <small class="errorMessage">{{errorMessage}}</small>
+            <button #submitButton type="submit" class="btn btn-primary" id="submitButton">Submit</button>
+          </form>
+          <div class="text-center" style="margin-top: 10px;">
+              <small class="text-center">New to Book Store? <a [routerLink]="'/signup'">Sign Up</a></small>
+          </div>
+    </div>
+    <div class="col-md-3">
+      <img class="img-responsive" style="width: 300px;" src="../../assets/images/loginImage.svg" alt="">
+      <h2 class="brand text-center">BOOK STORE</h2>
+    </div>
+</div>

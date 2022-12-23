@@ -1,0 +1,40 @@
+<app-admin-nav></app-admin-nav>
+<div class="container" id="productBody">
+    <div class="row">
+        <div class="col-md-8">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                      <th scope="col">Image</th>
+                      <th scope="col">Book Name</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Quantity</th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                <tbody>
+                  <tr *ngFor="let product of productList">
+                      <td> <img [src]="product.imageUrl" alt="ss" width="50px" 
+                        class="img-responsive"> </td>
+                    <td>{{product.productName}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.quantity}}</td>
+                    <td style="margin-right: 10px;"><a class="btn btn-warning text-white" 
+                        routerLink="/admin/productEdit/{{product.productId}}" (click)="setId(product.productId)">
+                        <i class="fa fa-pencil"></i></a></td>
+                    <td style="margin-top: 10px;"><a class="btn btn-danger text-white"
+                      routerLink="/admin/delete/{{product.productId}}" (click)="deleteId(product.productId)"><i class="fa fa-trash-o"></i></a></td>
+                </tr>
+                </tbody>
+              </table>
+
+        </div>
+        <div class="col-md-4">
+            <img 
+            id="productImage"
+            src="../../../assets/images/productImage.svg" width="100%" alt="">
+            <a class="btn btn-success text-white" id="addProduct" routerLink="/admin/addProduct"><i class="fa fa-cart-plus"></i> Add product</a>
+        </div>
+    </div>
+</div>
